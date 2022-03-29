@@ -1,24 +1,26 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState } from 'react'
 import './App.css'
+import ProgressBar from './components/progressBar'
+import Question from './components/question'
+import allQuestions from './questions.json'
 
-function App () {
+function App() {
+  const [questionNumber, setQuestionNumber] = useState(1)
+  const correctAnswerIndex =  Math.floor(Math.random() * 4)
+  const getNewQuestion = (isCorrect) => {
+    setQuestionNumber(previousState => previousState + 1)
+  
+  }
+
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <ProgressBar questionNumber={questionNumber} 
+        totalNumOfQuestions={allQuestions.length} />
+      <Question selectedQuestion={allQuestions[questionNumber - 1]}
+        totalNumOfQuestions={allQuestions.length}
+        questionNumber={questionNumber} 
+        correctAnswerIndex={correctAnswerIndex}
+        showNextQuestion={() => getNewQuestion()}/>
     </div>
   )
 }
