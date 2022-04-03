@@ -5,7 +5,7 @@ const ScoreTracker = ({ numOfQuestionsAnswered, numOfCorrectAnswers, numOfWrongA
     const currentScore = (numOfQuestionsAnswered === 0) ? 0 : Math.ceil((numOfCorrectAnswers / numOfQuestionsAnswered) * 100)
     const highestPossibleScore = Math.floor(((totalNumOfQuestions - numOfWrongAnswers) / totalNumOfQuestions) * 100)
     return (
-        <div className='trackerno'>
+        <div className='tracker'>
             <p className='score'><span>{`Score: ${currentScore}%`}</span><span>{`Max Score: ${highestPossibleScore}%`}</span></p>
             <div className="progress">
                 <div className="progress-bar leastPossibleScore" role="progressbar" style={{ width: `${leastPossibleScore}%` }}></div>
