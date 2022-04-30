@@ -7,7 +7,7 @@ import allQuestions from './questions.json'
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1)
   const correctAnswerIndex =  Math.floor(Math.random() * 4)
-  const getNewQuestion = (isCorrect) => {
+  const getNewQuestion = () => {
     setQuestionNumber(previousState => previousState + 1)
   
   }

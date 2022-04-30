@@ -89,8 +89,8 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
             <div className='options'>
                 {displayOptions()}
             </div>
-            <div className='correct text-center'>
-                <h2 className='result'>{result}</h2>
+            <div className='correct text-center' >
+                <h2 className='result' data-testid='correct'>{result}</h2>
                 {clicked && <button onClick={() => {
                     showNextQuestion()
                     returnToDefaultState()
