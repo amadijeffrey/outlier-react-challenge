@@ -9,6 +9,10 @@ app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname,'build', 'index.html'))
 })
 
+app.get('/health', (req, res) => {
+    res.send({message: 'okay'})
+})
+
 app.listen(port, () => {
     console.log('server is running')
 })
