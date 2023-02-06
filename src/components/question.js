@@ -1,11 +1,11 @@
-import React, { useState,useRef } from 'react'
+import React, { useState,useRef, useEffect } from 'react'
 import ScoreTracker from './scoreTracker'
 
 
 function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, correctAnswerIndex, showNextQuestion}) {
     const [isCorrect, setIsCorrect] = useState(null)
     const [clicked, setClicked] = useState(false)
-    const [numOfQuestionsAnswered, setNumOfQuestionsAnswered] = useState(0)
+    const [numOfQuestionsAnswered, setNumOfQuestionsAnswered] = useState(5)
     const [numOfCorrectAnswers, setNumOfCorrectAnswers] = useState(0)
     const [numOfWrongAnswers, setNumOfWrongAnswers] = useState(0)
     const correctAnswerButton = useRef()
@@ -66,8 +66,6 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
         document.querySelectorAll('.button').forEach((button) => {
             button.disabled = true
         })
-     
-       
     }
 
     const returnToDefaultState = () => {
@@ -79,6 +77,16 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
         correctAnswerButton.current.classList.remove('correctAnswer')
         document.querySelector('.clicked').classList.remove('clicked')
     }
+
+    const displayTime =() => {
+        console.log(numOfQuestionsAnswered, "fe", numOfCorrectAnswers)
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            displayTime()
+        }, 10000)
+    },[])
 
     return (
         <div className='container '>
