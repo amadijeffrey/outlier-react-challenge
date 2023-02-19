@@ -1,28 +1,19 @@
-import React, { useState } from 'react'
 import './App.css'
-import ProgressBar from './components/progressBar'
-import Question from './components/question'
-import allQuestions from './questions.json'
+import React from "react"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Start from "./components/start"
+import Home from "./Home"
 
-function App() {
-  const [questionNumber, setQuestionNumber] = useState(1)
-  const correctAnswerIndex =  Math.floor(Math.random() * 4)
-  const getNewQuestion = () => {
-    setQuestionNumber(previousState => previousState + 1)
-  
-  }
 
-  return (
-    <div >
-      <ProgressBar questionNumber={questionNumber} 
-        totalNumOfQuestions={allQuestions.length} />
-      <Question selectedQuestion={allQuestions[questionNumber - 1]}
-        totalNumOfQuestions={allQuestions.length}
-        questionNumber={questionNumber} 
-        correctAnswerIndex={correctAnswerIndex}
-        showNextQuestion={() => getNewQuestion()}/>
-    </div>
-  )
+export default function App(){
+    return(
+        <div>
+            <BrowserRouter>
+              <Routes>
+                 <Route path='/' element={<Start />} />
+                    <Route path='/start' element={<Home />} />
+              </Routes>
+            </BrowserRouter>
+        </div>
+    )
 }
-
-export default App

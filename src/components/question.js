@@ -1,14 +1,32 @@
 import React, { useState,useRef, useEffect } from 'react'
 import ScoreTracker from './scoreTracker'
+import Timer from './Timer'
 
 
 function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, correctAnswerIndex, showNextQuestion}) {
     const [isCorrect, setIsCorrect] = useState(null)
     const [clicked, setClicked] = useState(false)
-    const [numOfQuestionsAnswered, setNumOfQuestionsAnswered] = useState(5)
+    const [numOfQuestionsAnswered, setNumOfQuestionsAnswered] = useState(0)
     const [numOfCorrectAnswers, setNumOfCorrectAnswers] = useState(0)
     const [numOfWrongAnswers, setNumOfWrongAnswers] = useState(0)
     const correctAnswerButton = useRef()
+    const [time,setTime] = useState(false)
+
+    useEffect(() => {
+        if(time){
+            document.querySelectorAll('.button').forEach((button) => {
+                button.disabled = true
+            })
+            const numOfQuestionsNotAnswered = totalNumOfQuestions - numOfQuestionsAnswered
+            setNumOfQuestionsAnswered(20)
+            setNumOfWrongAnswers(previousState => previousState += numOfQuestionsNotAnswered)
+            setClicked(false)
+        }
+    }, [time, numOfQuestionsAnswered,totalNumOfQuestions])
+
+    const calculatedScoreAfterElapsedTime = () => {
+        setTime(true)
+    }
 
     let result
     if (isCorrect === null) result = ''
@@ -78,15 +96,6 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
         document.querySelector('.clicked').classList.remove('clicked')
     }
 
-    const displayTime =() => {
-        console.log(numOfQuestionsAnswered, "fe", numOfCorrectAnswers)
-    }
-
-    useEffect(() => {
-        setTimeout(() => {
-            displayTime()
-        }, 10000)
-    },[])
 
     return (
         <div className='container '>
@@ -111,7 +120,7 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
               numOfCorrectAnswers={numOfCorrectAnswers}
               numOfWrongAnswers={numOfWrongAnswers}
               totalNumOfQuestions={totalNumOfQuestions}/>
-
+              <Timer calculatedScoreAfterElapsedTime={calculatedScoreAfterElapsedTime} />
         </div>
     )
 }
