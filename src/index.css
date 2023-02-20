@@ -11,3 +11,146 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.container {
+  width: 80%;
+  margin: 0% auto;
+  margin-top: 3%;
+  height: 90vh;
+  position: relative;
+}
+.background {
+  height: 100vh;
+  background: url("./assets/backgroundImage.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer{
+  position:absolute;
+  top: 20px;
+  right: 10px;
+}
+.startButton{
+  width: 40%;
+  height: 50px;
+  border: 2px solid lightgray;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 4px 4px 8px lightgray;
+  border-radius: 20px;
+}
+.startButton:hover {
+  outline:none;
+  background-color: #aaa;
+
+}
+.welcome{
+  border: 1px solid white;
+  height: 40vh;
+  padding: 17px;
+  color: white;
+  text-align: center;
+}
+.clicked {
+  background: black;
+  color: white;
+}
+h4 {
+  line-height: 25px;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+h5 {
+  color: gray;
+}
+.tracker {
+  margin-bottom: 0%;
+  position: absolute;
+  bottom: 15px;
+  width: 97%;
+
+}
+.questionNumber {
+  background: gray;
+}
+.leastPossibleScore {
+  background: black;
+}
+.currentScore {
+  background: gray;
+}
+.highestPossibleScore {
+  background: lightgray;
+}
+.score {
+  display: flex;
+  justify-content: space-between;
+}
+.options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.correctAnswer {
+  background: white;
+  color: black;
+  border: solid 1px black;
+}
+.button {
+  width: 40%;
+  margin-bottom: 4%;
+  height: 45px;
+  border-radius: 6px;
+}
+.next {
+  height: 45px;
+  border-radius: 6px;
+  width: 30%;
+}
+
+.result {
+  margin: 3% 0%;
+}
+
+@media screen and (max-width: 750px) {
+  .next {
+    height: 10vh;
+  }
+  .button {
+    height: 10vh;
+    width: 47%;
+    margin-bottom: 5%;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1rem;
+    margin-top: 4%;
+    margin-bottom: 4%;
+  }
+  h5 {
+    font-size: 0.9rem;
+  }
+  h6 {
+    font-size: 0.6rem;
+  }
+  button {
+    font-size: 0.9rem;
+  }
+  .tracker {
+    position: absolute;
+    bottom: 10px;
+    width: 74%;
+  }
+  .container {
+    margin-top: 4%;
+  }
+  .result {
+    margin: 4% 0%;
+  }
+}
