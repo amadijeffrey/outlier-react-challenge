@@ -69,11 +69,9 @@ h5 {
   color: gray;
 }
 .tracker {
-  margin-bottom: 0%;
-  position: absolute;
-  bottom: 15px;
-  width: 97%;
-
+  position: relative;
+  bottom: -360px;
+  width: 100%;
 }
 .questionNumber {
   background: gray;
@@ -129,6 +127,9 @@ h5 {
   h2,h1 {
     font-size: 1.5rem;
   }
+  h3{
+    font-size: 1.2rem;
+  }
   h4 {
     font-size: 1rem;
     margin-top: 4%;
@@ -143,11 +144,7 @@ h5 {
   button {
     font-size: 0.9rem;
   }
-  .tracker {
-    position: absolute;
-    bottom: 10px;
-    width: 74%;
-  }
+
   .container {
     margin-top: 4%;
   }
