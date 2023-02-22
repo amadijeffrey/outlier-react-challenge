@@ -1,7 +1,7 @@
 import React from "react"
 
 export default function Timer({calculatedScoreAfterElapsedTime}) {
-    const [countDown, setCountDown] = React.useState(60 * 10);
+    const [countDown, setCountDown] = React.useState(60 * 7);
     const [runTimer, setRunTimer] = React.useState(true);
     const [isTimeUp, setIsTimeUp] = React.useState(false)
   

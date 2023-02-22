@@ -8,7 +8,7 @@ export default function Start() {
       <div className="background">
              <div className='welcome'>
                 <h1>Welcome to this quiz</h1>
-                <h3>You have 20 questions to answer in 10 minutes. Good luck!</h3>
+                <h3>You have 20 questions to answer in 7 minutes. Good luck!</h3>
                 <button className="startButton" type="button" onClick={() => navigate('/start')}>
                   Take quiz
                 </button>
