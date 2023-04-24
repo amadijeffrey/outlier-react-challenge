@@ -52,13 +52,13 @@ function Question({ questionNumber, totalNumOfQuestions, selectedQuestion, corre
         const correctAnswer = decodeURIComponent(selectedQuestion.correct_answer)
         const incorrectOptions = selectedQuestion.incorrect_answers.map((option) => {
             const decodedOption = decodeURIComponent(option)
-            return <button onClick={(e) => verifyOption(decodedOption, correctAnswer, e, questionNumber, totalNumOfQuestions)} className='button' >
+            return <button onClick={(e) => verifyOption(decodedOption, correctAnswer, e, questionNumber, totalNumOfQuestions)} className='button' key={decodedOption} >
                 {decodedOption}
             </button>
         })
         const allOptions = [...incorrectOptions]
         allOptions.splice(correctAnswerIndex, 0, <button ref={correctAnswerButton}
-             onClick={(e) => verifyOption(correctAnswer, correctAnswer, e,questionNumber, totalNumOfQuestions)} className='button'>{correctAnswer}</button>)
+             onClick={(e) => verifyOption(correctAnswer, correctAnswer, e,questionNumber, totalNumOfQuestions)} className='button' key={correctAnswer}>{correctAnswer}</button>)
         
         return allOptions
 

@@ -165,7 +165,7 @@ h5 {
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 496px) {
   .tracker{
     width: 93%;
   }
